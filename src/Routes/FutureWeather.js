@@ -25,12 +25,10 @@ const FutureWeather = ({ lat = "37", lon = "127", API_KEY }) => {
 
   return (
     <div>
-      <h4>FutureWeather</h4>
+      <h4>Future weather</h4>
       <h4>
-        {weather.map((day, index) => (
-          <h4>
-            {index} : {day.weather[0].main}
-          </h4>
+        {weather.map((day) => (
+          <h4>{day.weather[0].main}</h4>
         ))}
       </h4>
     </div>

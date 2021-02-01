@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import Time from "../components/Time";
+import { IoSunnyOutline } from "react-icons/io5";
 
 const Home = ({ lat = "37", lon = "127", API_KEY }) => {
   const [location, setLocation] = useState("");
@@ -39,11 +41,26 @@ const Home = ({ lat = "37", lon = "127", API_KEY }) => {
   return (
     <div className="Home">
       <h1>{location}</h1>
-      <h4>description : {weather.description}</h4>
-      <h4>temp : {weather.temp}°</h4>
-      <h4>weather : {weather.condition}</h4>
-      <h4>wind : {weather.speed}km/h</h4>
-      <h4>humidity : {weather.humidity}%</h4>
+      <h2>{weather.description}</h2>
+      <h1>{weather.temp}°</h1>
+      <h1>weather : {weather.condition}</h1>
+      <div className="Home__info">
+        <div>
+          <h3>wind</h3>
+          <h2>{weather.speed}km/h</h2>
+        </div>
+        <div>
+          <h3>humidity</h3>
+          <h2>{weather.humidity}%</h2>
+        </div>
+      </div>
+      <div className="Home__record">
+        <IoSunnyOutline />
+        <IoSunnyOutline />
+        <Time />
+        <IoSunnyOutline />
+        <IoSunnyOutline />
+      </div>
     </div>
   );
 };

@@ -26,7 +26,6 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation />
         <Switch>
           <Route
             path="/"
@@ -61,6 +60,7 @@ const App = () => {
           />
           <Redirect from="*" to="/" />
         </Switch>
+        <Navigation />
       </BrowserRouter>
     </div>
   );

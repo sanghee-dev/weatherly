@@ -1,9 +1,53 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
 .App {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+* {
+  box-sizing: border-box;
+}
+.Link {
+  text-decoration: none;
+  color: black;
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 14px;
+}
 
+/* Home */
+.Home {
+  padding: 20px;
+}
+.Home__info {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+.Home__info > div {
+  text-align: center;
+}
+.Home__record {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+/* Navigation */
 .Navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
   position: absolute;
   bottom: 0;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid black;
 }

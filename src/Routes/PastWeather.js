@@ -28,7 +28,7 @@ const PastWeather = ({ lat = "37", lon = "127", API_KEY }) => {
 
   return (
     <div>
-      <h4>PastWeather</h4>
+      <h4>Past weather</h4>
     </div>
   );
 };
