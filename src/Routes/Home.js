@@ -18,16 +18,23 @@ const Home = ({ lat = "37", lon = "127", API_KEY }) => {
     } = await json;
     await setLocation(name);
     await setWeather({
-      temp: temp,
-      humidity: humidity,
-      condition: condition,
-      description: description,
-      speed: speed,
+      temp,
+      humidity,
+      condition,
+      description,
+      speed,
     });
   };
+
   useEffect(() => {
-    getWeather(API);
-  }, [API]);
+    let mounted = true;
+    if (mounted) {
+      getWeather(API);
+    }
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   return (
     <div className="Home">

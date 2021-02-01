@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Home from "./Routes/Home";
 import FutureWeather from "./Routes/FutureWeather";
 import PastWeather from "./Routes/PastWeather";
@@ -25,40 +25,43 @@ const App = () => {
 
   return (
     <div className="App">
-      <HashRouter>
+      <BrowserRouter>
         <Navigation />
-        <Route
-          path="/"
-          exact={true}
-          render={() => (
-            <Home
-              lat={position.latitude}
-              lon={position.longitude}
-              API_KEY={API_KEY}
-            />
-          )}
-        />
-        <Route
-          path="/future"
-          render={() => (
-            <FutureWeather
-              lat={position.latitude}
-              lon={position.longitude}
-              API_KEY={API_KEY}
-            />
-          )}
-        />
-        <Route
-          path="/past"
-          render={() => (
-            <PastWeather
-              lat={position.latitude}
-              lon={position.longitude}
-              API_KEY={API_KEY}
-            />
-          )}
-        />
-      </HashRouter>
+        <Switch>
+          <Route
+            path="/"
+            exact={true}
+            render={() => (
+              <Home
+                lat={position.latitude}
+                lon={position.longitude}
+                API_KEY={API_KEY}
+              />
+            )}
+          />
+          <Route
+            path="/future"
+            render={() => (
+              <FutureWeather
+                lat={position.latitude}
+                lon={position.longitude}
+                API_KEY={API_KEY}
+              />
+            )}
+          />
+          <Route
+            path="/past"
+            render={() => (
+              <PastWeather
+                lat={position.latitude}
+                lon={position.longitude}
+                API_KEY={API_KEY}
+              />
+            )}
+          />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };

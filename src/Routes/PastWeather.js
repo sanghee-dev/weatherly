@@ -17,7 +17,13 @@ const PastWeather = ({ lat = "37", lon = "127", API_KEY }) => {
   };
 
   useEffect(() => {
-    getWeather(API);
+    let mounted = true;
+    if (mounted) {
+      getWeather(API);
+    }
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return (

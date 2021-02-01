@@ -12,9 +12,16 @@ const FutureWeather = ({ lat = "37", lon = "127", API_KEY }) => {
     const { daily } = await json;
     await setWeather(daily);
   };
+
   useEffect(() => {
-    getWeather(API);
-  }, [API]);
+    let mounted = true;
+    if (mounted) {
+      getWeather(API);
+    }
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   return (
     <div>
