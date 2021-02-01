@@ -7,14 +7,14 @@ import Navigation from "./components/Navigation";
 import "./App.css";
 
 const App = () => {
-  const [location, setLocation] = useState({});
+  const [position, setPosition] = useState({});
   const API_KEY = "0176bd3b06bc5cd4dbec44d2a0089d6e";
 
   const handleGeoSuccess = async (position) => {
     const {
       coords: { latitude, longitude },
     } = await position;
-    await setLocation({ latitude, longitude });
+    await setPosition({ latitude, longitude });
   };
   const handleGeoError = () => {
     console.log("error");
@@ -32,8 +32,8 @@ const App = () => {
           exact={true}
           render={() => (
             <Home
-              lat={location.latitude}
-              lon={location.longitude}
+              lat={position.latitude}
+              lon={position.longitude}
               API_KEY={API_KEY}
             />
           )}
@@ -42,8 +42,8 @@ const App = () => {
           path="/future"
           render={() => (
             <FutureWeather
-              lat={location.latitude}
-              lon={location.longitude}
+              lat={position.latitude}
+              lon={position.longitude}
               API_KEY={API_KEY}
             />
           )}
@@ -52,8 +52,8 @@ const App = () => {
           path="/past"
           render={() => (
             <PastWeather
-              lat={location.latitude}
-              lon={location.longitude}
+              lat={position.latitude}
+              lon={position.longitude}
               API_KEY={API_KEY}
             />
           )}

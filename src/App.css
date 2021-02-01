@@ -2,3 +2,8 @@
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
+.Navigation {
+  position: absolute;
+  bottom: 0;
+}
