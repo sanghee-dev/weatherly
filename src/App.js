@@ -27,27 +27,21 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route
-            path="/"
-            exact={true}
-            render={() => (
-              <Home
-                lat={position.latitude}
-                lon={position.longitude}
-                API_KEY={API_KEY}
-              />
-            )}
-          />
-          <Route
-            path="/future"
-            render={() => (
-              <FutureWeather
-                lat={position.latitude}
-                lon={position.longitude}
-                API_KEY={API_KEY}
-              />
-            )}
-          />
+          <Route path="/" exact={true}>
+            <Home
+              lat={position.latitude}
+              lon={position.longitude}
+              API_KEY={API_KEY}
+            />
+          </Route>
+          <Route path="/future">
+            <FutureWeather
+              lat={position.latitude}
+              lon={position.longitude}
+              API_KEY={API_KEY}
+            />
+          </Route>
+
           <Route
             path="/past"
             render={() => (
