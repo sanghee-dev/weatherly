@@ -8,7 +8,6 @@ const FutureWeather = ({ lat = "37", lon = "127", API_KEY }) => {
   const getWeather = async (API) => {
     const response = await fetch(API);
     const json = await response.json();
-    console.log(json);
     const { daily } = await json;
     await setWeather(daily);
   };

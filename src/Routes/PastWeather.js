@@ -8,12 +8,10 @@ const PastWeather = ({ lat = "37", lon = "127", API_KEY }) => {
   const getWeather = async (API) => {
     const response = await fetch(API);
     const json = await response.json();
-    console.log(json);
     const {
       current: { temp },
     } = await json;
     await setWeather(temp);
-    console.log(temp);
   };
 
   useEffect(() => {

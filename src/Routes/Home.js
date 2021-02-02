@@ -11,7 +11,6 @@ const Home = ({ lat = "37", lon = "127", API_KEY }) => {
   const getWeather = async (API) => {
     const response = await fetch(API);
     const json = await response.json();
-    console.log(json);
     const {
       name,
       main: { temp, humidity },
