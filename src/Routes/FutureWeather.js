@@ -24,13 +24,13 @@ const FutureWeather = ({ lat = "37", lon = "127", API_KEY }) => {
   }, []);
 
   return (
-    <div>
-      <h4>Future weather</h4>
-      <h4>
+    <div className="FutureWeather screen">
+      <h1>Future weather</h1>
+      <h2>
         {weather.map((day) => (
           <h4>{day.weather[0].main}</h4>
         ))}
-      </h4>
+      </h2>
     </div>
   );
 };

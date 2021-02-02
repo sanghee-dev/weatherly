@@ -20,15 +20,15 @@ h2 {
 h3 {
   font-size: 14px;
 }
-
-/* Home */
-.Home {
+.screen {
   padding: 20px;
 }
+
+/* Home */
 .Home__info {
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
+  border: 1px solid black;
 }
 .Home__info > div {
   text-align: center;
@@ -36,16 +36,18 @@ h3 {
 .Home__record {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
   border: 1px solid black;
 }
 
 /* Navigation */
 .Navigation {
-  width: 100%;
+  width: calc(100vw - 40px);
   display: flex;
   justify-content: space-around;
   position: absolute;
-  bottom: 0;
+  left: 20px;
+  bottom: 20px;
   padding: 20px;
   border-radius: 20px;
   background-color: white;

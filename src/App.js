@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import Home from "./Routes/Home";
-import FutureWeather from "./Routes/FutureWeather";
-import PastWeather from "./Routes/PastWeather";
-import Navigation from "./components/Navigation";
+import Home from "Routes/Home";
+import FutureWeather from "Routes/FutureWeather";
+import PastWeather from "Routes/PastWeather";
+import Navigation from "Components/Navigation";
 import "./App.css";
 
 const App = () => {

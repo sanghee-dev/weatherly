@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import Time from "../components/Time";
+import Time from "Components/Time";
 import { IoSunnyOutline } from "react-icons/io5";
 
 const Home = ({ lat = "37", lon = "127", API_KEY }) => {
@@ -39,11 +39,11 @@ const Home = ({ lat = "37", lon = "127", API_KEY }) => {
   }, []);
 
   return (
-    <div className="Home">
-      <h1>{location}</h1>
+    <div className="Home  screen">
+      <h1>{location}!</h1>
       <h2>{weather.description}</h2>
       <h1>{weather.temp}°</h1>
-      <h1>weather : {weather.condition}</h1>
+      <h1>Weather : {weather.condition}</h1>
       <div className="Home__info">
         <div>
           <h3>wind</h3>
