@@ -13,7 +13,7 @@ const Router = () => {
     const {
       coords: { latitude, longitude },
     } = await position;
-    await setPosition({ latitude, longitude });
+    setPosition({ latitude, longitude });
   };
   const handleGeoError = () => {
     console.log("error");

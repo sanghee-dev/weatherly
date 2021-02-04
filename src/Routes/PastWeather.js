@@ -11,7 +11,7 @@ const PastWeather = ({ lat = "37", lon = "127", API_KEY }) => {
     const {
       current: { temp },
     } = await json;
-    await setWeather(temp);
+    setWeather(temp);
   };
 
   useEffect(() => {

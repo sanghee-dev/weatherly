@@ -9,7 +9,7 @@ const FutureWeather = ({ lat = "37", lon = "127", API_KEY }) => {
     const response = await fetch(API);
     const json = await response.json();
     const { daily } = await json;
-    await setWeather(daily);
+    setWeather(daily);
   };
 
   useEffect(() => {

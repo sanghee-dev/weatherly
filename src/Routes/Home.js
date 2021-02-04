@@ -17,8 +17,8 @@ const Home = ({ lat = "37", lon = "127", API_KEY }) => {
       weather: [{ main: condition, description }],
       wind: { speed },
     } = await json;
-    await setLocation(name);
-    await setWeather({
+    setLocation(name);
+    setWeather({
       temp,
       humidity,
       condition,
