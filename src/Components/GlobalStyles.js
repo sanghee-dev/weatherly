@@ -17,13 +17,13 @@ const globalStyles = createGlobalStyle`
     color: inherit;
   }
   h1{
-    font-size: 28px;
+    font-size: 36px;
   }
   h2{
-    font-size: 18px;
+    font-size: 24px;
   }
   h3{
-    font-size: 12px;
+    font-size: 18px;
   }
 `;
 
