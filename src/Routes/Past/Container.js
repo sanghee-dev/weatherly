@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Presenter from "./Presenter";
 import { weatherApi } from "api";
 
-const Container = ({ position }) => {
+const Container = ({ lat, lon }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [weather, setWeather] = useState({});
@@ -11,13 +11,14 @@ const Container = ({ position }) => {
     let mounted = true;
     if (mounted) {
       setIsLoading(true);
-      const fetchData = async (position) => {
+      const fetchData = async (lat, lon) => {
         try {
-          const response = await weatherApi.past(position);
-          const json = await response.json();
+          const response = await weatherApi.past(lat, lon, 1); // 1 day before
           const {
-            current: { temp },
-          } = await json;
+            data: {
+              current: { temp },
+            },
+          } = response;
           setWeather({ temp });
         } catch {
           setIsError("Can't find information.");
@@ -25,10 +26,10 @@ const Container = ({ position }) => {
           setIsLoading(false);
         }
       };
-      fetchData(position);
+      fetchData(lat, lon);
     }
     return () => (mounted = false);
-  }, [position]);
+  }, [lat, lon]);
 
   return <Presenter weather={weather} />;
 };

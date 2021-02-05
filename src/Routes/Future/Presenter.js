@@ -1,14 +1,13 @@
 import React from "react";
 
 const Presenter = ({ weather }) => {
+  console.log(weather);
   return (
     <div className="FutureWeather screen">
       <h1>Future weather</h1>
-      <h2>
-        {weather.map((day) => (
-          <h3>{day.weather[0].main}</h3>
-        ))}
-      </h2>
+      {weather.map((w) => (
+        <h1>{w.temp.day}°</h1>
+      ))}
     </div>
   );
 };

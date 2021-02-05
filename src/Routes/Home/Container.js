@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Presenter from "./Presenter";
 import { weatherApi } from "api";
 
-const Container = ({ position }) => {
+const Container = ({ lat, lon }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [location, setLocation] = useState("");
@@ -12,17 +12,17 @@ const Container = ({ position }) => {
     let mounted = true;
     if (mounted) {
       setIsLoading(true);
-      const fetchData = async (position) => {
+      const fetchData = async (lat, lon) => {
         try {
-          const response = await weatherApi.home(position);
-          const json = await response.json();
-          console.log(json);
+          const json = await weatherApi.home(lat, lon);
           const {
-            name,
-            main: { temp, humidity },
-            weather: [{ main: condition, description }],
-            wind: { speed },
-          } = await json;
+            data: {
+              name,
+              main: { temp, humidity },
+              weather: [{ main: condition, description }],
+              wind: { speed },
+            },
+          } = json;
           setLocation(name);
           setWeather({
             temp,
@@ -37,10 +37,10 @@ const Container = ({ position }) => {
           setIsLoading(false);
         }
       };
-      fetchData(position);
+      fetchData(lat, lon);
     }
     return () => (mounted = false);
-  }, [position]);
+  }, [lat, lon]);
 
   return <Presenter location={location} weather={weather} />;
 };

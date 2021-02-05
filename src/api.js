@@ -9,7 +9,7 @@ const api = axios.create({
 });
 
 export const weatherApi = {
-  future: ({ lat, lon }) =>
+  future: (lat, lon) =>
     api.get("onecall?", {
       params: {
         lat: lat,
@@ -17,19 +17,19 @@ export const weatherApi = {
         exclude: "current,minutely,hourly,alerts",
       },
     }),
-  home: ({ lat, lon }) =>
+  home: (lat, lon) =>
     api.get("weather?", {
       params: {
         lat: lat,
         lon: lon,
       },
     }),
-  past: ({ lat, lon }) =>
+  past: (lat, lon, day) =>
     api.get("onecall/timemachine?", {
       params: {
         lat: lat,
         lon: lon,
-        dt: Math.floor(+new Date() / 1000 - 86400 * 1),
+        dt: Math.floor(+new Date() / 1000 - 86400 * `${day}`),
       },
     }),
 };

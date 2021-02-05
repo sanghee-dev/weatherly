@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Header from "./Header";
 import Home from "Routes/Home";
-import FutureWeather from "Routes/Future";
-import PastWeather from "Routes/Past";
+import Future from "Routes/Future";
+import Past from "Routes/Past";
 
 const Router = () => {
-  const [position, setPosition] = useState();
+  const [latitude, setLatitude] = useState();
+  const [longitude, setLongitude] = useState();
   const handleGeoSuccess = async (position) => {
     const {
       coords: { latitude, longitude },
     } = await position;
-    setPosition({ latitude, longitude });
+    setLatitude(latitude);
+    setLongitude(longitude);
   };
   const handleGeoError = () => {
     console.log("error");
@@ -24,13 +26,13 @@ const Router = () => {
         <Header />
         <Switch>
           <Route exact path="/">
-            <Home position={position} />
+            <Home lat={latitude} lon={longitude} />
           </Route>
           <Route path="/Future">
-            <FutureWeather position={position} />
+            <Future lat={latitude} lon={longitude} />
           </Route>
           <Route path="/Past">
-            <PastWeather position={position} />
+            <Past lat={latitude} lon={longitude} />
           </Route>
           <Redirect from="*" to="/" />
         </Switch>
